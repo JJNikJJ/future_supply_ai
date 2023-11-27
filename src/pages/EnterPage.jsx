@@ -12,7 +12,7 @@ const EnterPage = () => {
         <NavLink to="/registration">
           <button className="verifyButtonSubmit" type="submit">
             <div className="Text_in_Button">
-              Зарегестрироваться
+              Зарегистрироваться
               <img src={arrow} className="img_button" alt="Стрела в кнопке" />
             </div>
           </button>
