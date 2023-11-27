@@ -38,18 +38,18 @@ const NavBar = () => {
             <span>Профиль</span>
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/send-order" className="style_navlink">
-            <FaPaperPlane />
-            <span>Отправка заказа</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/car" className="style_navlink">
-            <FaCar />
-            <span>Машины</span>
-          </NavLink>
-        </li>
+        {/*<li>*/}
+        {/*  <NavLink to="/send-order" className="style_navlink">*/}
+        {/*    <FaPaperPlane />*/}
+        {/*    <span>Отправка заказа</span>*/}
+        {/*  </NavLink>*/}
+        {/*</li>*/}
+        {/*<li>*/}
+        {/*  <NavLink to="/car" className="style_navlink">*/}
+        {/*    <FaCar />*/}
+        {/*    <span>Машины</span>*/}
+        {/*  </NavLink>*/}
+        {/*</li>*/}
       </ul>
     </nav>
   );
