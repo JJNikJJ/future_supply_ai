@@ -1,0 +1,47 @@
+
+.EnterBase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 328px;
+  font-size: 16px;
+  line-height: 24px;
+  margin: auto auto;
+  height: 100vh;
+}
+
+.Img_Logo {
+  width: 300px;
+  height: 300px;
+}
+
+.Text_head {
+  font-size: 20px;
+}
+
+.Text_in_Button {
+  font-size: 20px;
+}
+
+.img_button {
+  width: 30px;
+  height: 20px;
+}
+
+.Text_subhead {
+  font-size: 15px;
+  margin-top: 50px;
+}
+
+.verifyButtonSubmit {
+  border: none;
+  background: rgb(255, 255, 255) linear-gradient(rgb(3, 69, 145), rgb(21, 210, 158)) no-repeat;
+  width: 328px;
+  height: 48px;
+  border-radius: 8px;
+  margin: 12px 16px 0 16px;
+  color: #FFFFFF;
+  padding: 12px;
+  font-size: 16px;
+}

@@ -1,0 +1,39 @@
+.base_profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page_body {
+  width: 100%;
+  height: 100%;
+}
+
+.info {
+  border-bottom: 1px solid black;
+  font-size: 15px;
+  background-color: #f2f2f2; /* Светлосерый цвет фона */
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.AuthorInfo,
+.AuthorInfoBase {
+  margin: 10px 15px;
+  /* Если вы хотите изменить цвет текста внутри .info */
+  color: #333; /* Черный цвет текста, например */
+}
+.AuthorInfoBase {
+  font-style: italic;
+}
+.verifyButtonSubmit1 {
+  border: none;
+  background: rgb(255, 255, 255) linear-gradient(rgb(3, 69, 145), rgb(21, 210, 158)) no-repeat;
+  width: 328px;
+  height: 48px;
+  border-radius: 8px;
+  margin: 12px 16px 0 16px;
+  color: #FFFFFF;
+  padding: 12px;
+  font-size: 16px;
+}

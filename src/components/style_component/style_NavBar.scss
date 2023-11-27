@@ -1,0 +1,44 @@
+nav {
+  background-color: #f2f2f2;
+  padding: 15px 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  border-radius: 25px 25px 0 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 10px;
+  display: flex;
+  justify-content: space-between; /* Равномерное распределение элементов по всей длине */
+  align-items: center; /* Выравнивание по центру по вертикали */
+}
+
+li {
+  margin-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+}
+
+span {
+  margin-top: 5px;
+}
+
+/* Добавим стиль для активной ссылки, например, при наличии класса "active" */
+a.active {
+  font-weight: bold;
+}
+
+/* Увеличение размера иконок */
+svg {
+  font-size: 26px;
+}
