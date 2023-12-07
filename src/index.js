@@ -1,13 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
+import ReactDOM from "react-dom";
 import App from "./App";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { UserProvider } from "./context/UserContext";
 
-const queryClient = new QueryClient();
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <QueryClientProvider client={queryClient}>
-    <App />
-  </QueryClientProvider>,
+ReactDOM.render(
+  <React.StrictMode>
+    <UserProvider>
+      <App />
+    </UserProvider>
+  </React.StrictMode>,
+  document.getElementById("root"),
 );

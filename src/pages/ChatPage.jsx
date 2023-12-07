@@ -2,8 +2,11 @@ import "../Style_page/Style_ChatPage.scss";
 import NavBar from "../components/NavBar";
 import Headers from "../components/Headers";
 import React, { useState } from "react";
+import { useUser } from "../context/UserContext";
 
 const ChatPage = () => {
+  const { user } = useUser(); // Используйте хук для получения информации о пользователе
+
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [question, setQuestion] = useState("");

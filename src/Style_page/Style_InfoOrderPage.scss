@@ -1,5 +1,16 @@
-.page_info{
+/* Style_InfoOrderPage.scss */
+
+.page_info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100vh; /* Занимает 100% высоты экрана */
+}
+
+.body_info {
+  flex: 1; /* Занимает оставшееся пространство внутри .page_info */
+  display: flex;
+}
+
+.map {
+  flex: 1; /* Занимает всю доступную ширину внутри .body_info */
 }

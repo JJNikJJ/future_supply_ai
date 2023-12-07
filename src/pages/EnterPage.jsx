@@ -9,15 +9,15 @@ const EnterPage = () => {
         <img className="Img_Logo" src={logo} alt="Логотип" />
         <div className="Text_head">Снабжение будущего</div>
         <div className="Text_subhead">Мы поставляем завтрашний успех!</div>
-        <NavLink to="/registration">
-          <button className="verifyButtonSubmit" type="submit">
-            <div className="Text_in_Button">
-              Зарегистрироваться
-              <img src={arrow} className="img_button" alt="Стрела в кнопке" />
-            </div>
-          </button>
-        </NavLink>
-        <NavLink to="/profile">
+        {/*<NavLink to="/registration">*/}
+        {/*  <button className="verifyButtonSubmit" type="submit">*/}
+        {/*    <div className="Text_in_Button">*/}
+        {/*      Зарегистрироваться*/}
+        {/*      <img src={arrow} className="img_button" alt="Стрела в кнопке" />*/}
+        {/*    </div>*/}
+        {/*  </button>*/}
+        {/*</NavLink>*/}
+        <NavLink to="/login">
           <button className="verifyButtonSubmit" type="submit">
             <div className="Text_in_Button">
               Войти

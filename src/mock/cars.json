@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "carNumber": "A123BC",
+    "locationX": 55.7558,
+    "locationY": 37.6176,
+    "status": "awaiting"
+  },
+  {
+    "id": 2,
+    "carNumber": "B456CD",
+    "locationX": 55.7890,
+    "locationY": 37.5432,
+    "status": "loading"
+  },
+  {
+    "id": 3,
+    "carNumber": "C789DE",
+    "locationX": 55.6789,
+    "locationY": 37.9876,
+    "status": "delivery"
+  }
+
+]

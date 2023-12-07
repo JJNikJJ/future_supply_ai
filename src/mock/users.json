@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "login": "nikibush",
+    "firstName": "Никита",
+    "lastName": "Бушуев",
+    "patronymic": "Дмитриевич",
+    "phone": "89643606892",
+    "email": "nikita-1707@yandex.ru",
+    "password": "11111",
+    "image": "../media/order.png",
+    "role": "order"
+  },
+  {
+    "id": 2,
+    "login": "helenpetr",
+    "firstName": "Елена",
+    "lastName": "Петрова",
+    "patronymic": "Сергеевна",
+    "phone": "89876543210",
+    "email": "elena@example.com",
+    "password": "11111",
+    "image": "../media/operator.png",
+    "role": "operator"
+  },
+  {
+    "id": 3,
+    "login": "alexsid",
+    "firstName": "Александр",
+    "lastName": "Сидоров",
+    "patronymic": "Петрович",
+    "phone": "81112223333",
+    "email": "alex@example.com",
+    "password": "11111",
+    "image": "../media/logistic.png",
+    "role": "logistic"
+  }
+]

@@ -1,47 +1,75 @@
-import "../Style_page/Style_NewOrderPage.scss";
+import React, { useState, useRef, useEffect } from "react";
 import NavBar from "../components/NavBar";
 import Headers from "../components/Headers";
-import React, { useState } from "react";
+import materialsData from "../mock/materials.json";
+import "../Style_page/Style_NewOrderPage.scss";
+import { useUser } from "../context/UserContext";
 
 const NewOrderPage = () => {
-  // Состояния для адресов и городов
+  const { user } = useUser();
+
   const [fromAddress, setFromAddress] = useState("");
   const [fromCity, setFromCity] = useState("");
   const [toAddress, setToAddress] = useState("");
   const [toCity, setToCity] = useState("");
+  const [selectedMaterial, setSelectedMaterial] = useState(null);
+  const [tons, setTons] = useState(0);
+  const [shippingCost, setShippingCost] = useState(0);
+  const orderButtonRef = useRef(null);
 
-  // Состояние для выбранных материалов
-  const [selectedMaterials, setSelectedMaterials] = useState([]);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Если клик был сделан вне кнопки заказа, то сбрасываем выбор материала
+      if (
+        orderButtonRef.current &&
+        !orderButtonRef.current.contains(event.target)
+      ) {
+        setSelectedMaterial(null);
+      }
+    };
 
-  // Обработчики изменения состояний
+    // Добавляем обработчик клика при монтировании компонента
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const handleFromAddressChange = (e) => setFromAddress(e.target.value);
   const handleFromCityChange = (e) => setFromCity(e.target.value);
   const handleToAddressChange = (e) => setToAddress(e.target.value);
   const handleToCityChange = (e) => setToCity(e.target.value);
 
-  // Пример материалов (вам нужно заменить это на свои материалы)
-  const materials = ["Материал 1", "Материал 2", "Материал 3"];
+  const handleMaterialSelect = (e) => {
+    const materialId = parseInt(e.target.value, 10);
+    setSelectedMaterial(
+      materialsData.find((material) => material.id === materialId),
+    );
+  };
 
-  // Обработчик выбора материалов
-  const handleMaterialSelect = (material) => {
-    if (selectedMaterials.includes(material)) {
-      setSelectedMaterials(
-        selectedMaterials.filter((item) => item !== material),
-      );
-    } else {
-      setSelectedMaterials([...selectedMaterials, material]);
+  const handleTonsChange = (e) => {
+    const selectedTons = parseInt(e.target.value, 10);
+    setTons(selectedTons);
+
+    if (selectedMaterial) {
+      const shippingPercentage = selectedTons / 15;
+      const baseShippingCost = 153000;
+      const calculatedShippingCost =
+        baseShippingCost * shippingPercentage +
+        selectedMaterial.pricePerTon * selectedTons;
+      setShippingCost(calculatedShippingCost);
     }
   };
 
-  // Обработчик для кнопки "Заказать"
   const handleOrderSubmit = () => {
-    // Ваш код для обработки заказа
     console.log("Заказ размещен:", {
       fromAddress,
       fromCity,
       toAddress,
       toCity,
-      selectedMaterials,
+      selectedMaterial,
+      tons,
+      shippingCost,
     });
   };
 
@@ -53,16 +81,16 @@ const NewOrderPage = () => {
         <input
           className="input_section"
           type="text"
-          placeholder="Введите адрес"
-          value={fromAddress}
-          onChange={handleFromAddressChange}
+          placeholder="Введите город"
+          value={fromCity}
+          onChange={handleFromCityChange}
         />
         <input
           className="input_section"
           type="text"
-          placeholder="Введите город"
-          value={fromCity}
-          onChange={handleFromCityChange}
+          placeholder="Введите адрес"
+          value={fromAddress}
+          onChange={handleFromAddressChange}
         />
       </div>
 
@@ -71,38 +99,69 @@ const NewOrderPage = () => {
         <input
           className="input_section"
           type="text"
-          placeholder="Введите адрес"
-          value={toAddress}
-          onChange={handleToAddressChange}
-        />
-        <input
-          className="input_section"
-          type="text"
           placeholder="Введите город"
           value={toCity}
           onChange={handleToCityChange}
         />
+        <input
+          className="input_section"
+          type="text"
+          placeholder="Введите адрес"
+          value={toAddress}
+          onChange={handleToAddressChange}
+        />
       </div>
 
       <div className="materials-section">
-        <h2>Выберите материалы</h2>
-        {materials.map((material) => (
-          <div
-            key={material}
-            className={`material-item ${
-              selectedMaterials.includes(material) ? "selected" : ""
-            }`}
-            onClick={() => handleMaterialSelect(material)}
-          >
-            {material}
-          </div>
-        ))}
+        <h2>Выберите материал</h2>
+        <select
+          value={selectedMaterial ? selectedMaterial.id : ""}
+          onChange={handleMaterialSelect}
+          className="material-dropdown"
+        >
+          <option value="" disabled>
+            Выберите материал
+          </option>
+          {materialsData.map((material) => (
+            <option key={material.id} value={material.id}>
+              {`${material.code} - ${material.name}`}
+            </option>
+          ))}
+        </select>
       </div>
-      <button className="calculate-button" onClick={handleOrderSubmit}>
-        Калькулятор стоимости
-      </button>
 
-      <button className="order-button" onClick={handleOrderSubmit}>
+      {selectedMaterial && (
+        <div className="tons-section">
+          <h2>Выберите количество тонн</h2>
+          <input
+            type="range"
+            min="0"
+            max="15"
+            value={tons}
+            onChange={handleTonsChange}
+            className="tons-input"
+          />
+          <span className="tons-value">{tons} тонн</span>
+        </div>
+      )}
+
+      <div
+        className="calculate-button"
+        onClick={handleOrderSubmit}
+        role="button"
+        tabIndex="0"
+        style={{ cursor: "pointer" }}
+        disabled={!selectedMaterial}
+      >
+        Стоимость перевозки: {shippingCost} руб.
+      </div>
+
+      <button
+        className="order-button"
+        onClick={handleOrderSubmit}
+        disabled={!selectedMaterial}
+        ref={orderButtonRef}
+      >
         Заказать
       </button>
       <NavBar />

@@ -6,10 +6,6 @@ import MyMap from "./MyMap";
 const Info_order = (props) => {
   return (
     <div className="info_page">
-      <div className="map">
-        <MyMap />
-      </div>
-
       <div className="box_order">
         <div className="order_header">
           <div className="order_number">Заказ № {props.number}</div>

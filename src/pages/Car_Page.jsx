@@ -4,10 +4,14 @@ import NavBar from "../components/NavBar";
 import Order_Address from "../components/Order_Address";
 import React from "react";
 
+import { useUser } from "../context/UserContext";
+
 const Car_Page = () => {
+  const { user } = useUser();
+
   return (
     <div className="base_car">
-      <Headers name="Машины" />
+      <Headers name={"Машины"} />
       <div className="body_send_order">
         <Order_Address
           number={"23564214"}

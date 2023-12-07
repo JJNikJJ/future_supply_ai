@@ -3,13 +3,19 @@ import Headers from "../components/Headers";
 import NavBar from "../components/NavBar";
 import React from "react";
 import Info_order from "../components/Info_order";
+import { useUser } from "../context/UserContext";
+import MyMap from "../components/MyMap";
 
 const InfoOrderPage = () => {
+  const { user } = useUser();
+
   return (
     <div className="page_info">
       <Headers name={"Информация о заказе"} />
       <div className="body_info">
-        <Info_order />
+        <div className="map">
+          <MyMap />
+        </div>
       </div>
       <NavBar />
     </div>
