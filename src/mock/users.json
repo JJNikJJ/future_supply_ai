@@ -34,5 +34,17 @@
     "password": "11111",
     "image": "../media/logistic.png",
     "role": "logistic"
+  },
+  {
+    "id": 4,
+    "login": "alexsid",
+    "firstName": "Виталий",
+    "lastName": "Шаранин",
+    "patronymic": "Юрьевич",
+    "phone": "89217737649",
+    "email": "vitasharanin@yandex.ru",
+    "password": "12345",
+    "image": "../media/logistic.png",
+    "role": "order"
   }
 ]
