@@ -3,7 +3,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-control-geocoder/dist/Control.Geocoder.css";
 import "leaflet-control-geocoder";
-import "../components/style_component/style_MyMap.scss"; // Импортируем стили
+import "../components/style_component/style_MyMap.scss";
 
 const MyMap = () => {
   const mapRef = useRef(null);
@@ -24,7 +24,6 @@ const MyMap = () => {
     mapRef.current = map;
 
     return () => {
-      // Очистка ресурсов карты при размонтировании компонента
       if (mapRef.current) {
         mapRef.current.remove();
       }
